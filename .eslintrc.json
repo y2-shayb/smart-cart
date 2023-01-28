@@ -1,6 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
+  "parser": "@typescript-eslint/parser",
   "plugins": ["@nrwl/nx"],
   "overrides": [
     {
@@ -18,18 +19,83 @@
               }
             ]
           }
-        ]
+        ],
+        "@typescript-eslint/member-ordering": "error",
+        "@typescript-eslint/no-empty-interface": "error",
+        "@typescript-eslint/no-misused-new": "error",
+        "@typescript-eslint/no-unused-expressions": "error",
+        "no-magic-numbers": [
+          "error",
+          {
+            "ignoreArrayIndexes": true,
+            "ignoreDefaultValues": true,
+            "ignore": [1, 0, -1]
+          }
+        ],
+        "no-mixed-operators": "error",
+        "no-debugger": "error",
+        "no-eval": "error",
+        "no-loop-func": "error",
+        "no-lonely-if": "error",
+        "id-length": ["error", { "exceptionPatterns": ["_", "t"] }],
+        "no-duplicate-imports": "error",
+        "no-self-compare": "error",
+        "no-template-curly-in-string": "error",
+        "no-var": "error",
+        "camelcase": ["error"],
+        "default-case": "error",
+        "default-case-last": "error",
+        "eqeqeq": "error",
+        "max-lines": ["error", { "max": 300 }],
+        "max-depth": ["error", { "max": 3 }],
+        "max-params": ["error", { "max": 5 }],
+        "max-lines-per-function": ["error", { "max": 50 }],
+        "max-nested-callbacks": ["error", { "max": 3 }],
+        "max-statements": ["error", { "max": 20 }],
+        "max-statements-per-line": ["error", { "max": 1 }],
+        "no-return-await": "error",
+        "prefer-spread": "error",
+        "no-warning-comments": "error",
+        "no-inline-comments": "error",
+        "prefer-object-spread": "error",
+        "prefer-destructuring": "error",
+        "prefer-template": "error",
+        "no-param-reassign": ["error", { "props": true }],
+        "no-multi-assign": "error",
+        "no-nested-ternary": "error",
+        "no-unneeded-ternary": "error",
+        "spaced-comment": ["error", "always", { "markers": ["/"] }],
+        "no-underscore-dangle": "error",
+        "no-console": "error",
+        "no-unused-vars": "error",
+        "no-empty": "error",
+        "prefer-const": "error"
       }
     },
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
+      "extends": ["plugin:@nrwl/nx/typescript", "plugin:mobx/recommended"],
+      "rules": {
+        "mobx/missing-observer": "off"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nrwl/nx/javascript"],
       "rules": {}
+    },
+    {
+      "files": ["*.tsx", "*.spec.ts", "*.spec.tsx"],
+      "rules": {
+        "max-lines-per-function": "off"
+      }
+    },
+    {
+      "files": ["*.spec.ts"],
+      "rules": {
+        "max-lines-per-function": "off",
+        "no-magic-numbers": "off"
+      }
     }
   ]
 }
