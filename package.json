@@ -2,7 +2,10 @@
   "name": "smart-cart",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "format": "nx format:write",
+    "affected": "nx affected"
+  },
   "private": true,
   "dependencies": {
     "@emotion/css": "^11.10.5",

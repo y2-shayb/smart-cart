@@ -1,10 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/css';
 
-type Props = {
+type Props = {};
 
-};
-
-export const MainHeader = ({}: Props) => {
-    
-}
+export const MainHeader = ({}: Props) => {};
